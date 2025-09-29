@@ -1,21 +1,20 @@
 "use strict";
 
 function solveEquation(a, b, c) {
-    const d = Math.pow(b, 2) - 4 * a * c;
-    let arr = [];
+    const d = Math.pow(b, 2) - 4 * a * c; 
+    let arr = []; 
 
-    if (d < 0) {
-        return arr;
-    } else if (d === 0) {
+    if (d === 0) {
         const root = -b / (2 * a);
         arr.push(root);
-    } else {
+    } 
+    else if (d > 0) {
         const root1 = (-b + Math.sqrt(d)) / (2 * a);
         const root2 = (-b - Math.sqrt(d)) / (2 * a);
         arr.push(root1, root2);
     }
 
-    return arr;
+    return arr; 
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
