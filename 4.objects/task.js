@@ -5,7 +5,7 @@ function Student(name, gender, age) {
     this.marks = [];         // Массив оценок
     this.subject = null;     // Предмет (по умолчанию null)
 }
-
+//
 Student.prototype.setSubject = function(subjectName) {
     this.subject = subjectName; 
 };
@@ -15,6 +15,7 @@ Student.prototype.addMarks = function(...marksToAdd) {
         this.marks.push(...marksToAdd); 
     }
 };
+
 
 Student.prototype.getAverage = function() {
     if (this.marks.length === 0) {
