@@ -18,11 +18,11 @@ Student.prototype.addMarks = function(...marksToAdd) {
 
 
 Student.prototype.getAverage = function() {
-    if (!this.marks || this.marks.length === 0) {
-        return 0; 
+    if (this.marks && this.marks.length > 0) {
+        const sum = this.marks.reduce((accum, mark) => accum + mark, 0); 
+        return sum / this.marks.length;
     }
-    const sum = this.marks.reduce((accum, mark) => accum + mark, 0); 
-    return sum / this.marks.length; 
+    return 0; 
 };
 
 Student.prototype.exclude = function(reason) {
