@@ -1,73 +1,73 @@
 //Задание 1
 // Базовый класс для печатных изданий
 class PrintEditionItem {
-    constructor(name, releaseDate, pagesCount) {
-        this.name = name;
-        this.releaseDate = releaseDate;
-        this.pagesCount = pagesCount;
-        this.state = 100; // состояние по умолчанию
-        this.type = null; // тип по умолчанию
-    }
+  constructor(name, releaseDate, pagesCount) {
+    this.name = name;
+    this.releaseDate = releaseDate;
+    this.pagesCount = pagesCount;
+    this.state = 100; // состояние по умолчанию
+    this.type = null; // тип по умолчанию
+  }
 
-    // Метод для улучшения состояния
-    fix() {
-        this.state = Math.min(this.state * 1.5, 100); // Увеличиваем состояние, не превышая 100
-    }
+  // Метод для улучшения состояния
+  fix() {
+    this.state = Math.min(this.state * 1.5, 100); // Увеличиваем состояние, не превышая 100
+  }
 
-    // 'Setter' для свойства state
-    set state(value) {
-        if (value < 0) {
-            this._state = 0;
-        } else if (value > 100) {
-            this._state = 100;
-        } else {
-            this._state = value;
-        }
+  // 'Setter' для свойства state
+  set state(value) {
+    if (value < 0) {
+      this._state = 0;
+    } else if (value > 100) {
+      this._state = 100;
+    } else {
+      this._state = value;
     }
+  }
 
-    // 'Getter' для свойства state
-    get state() {
-        return this._state;
-    }
+  // 'Getter' для свойства state
+  get state() {
+    return this._state;
+  }
 }
 
 // Класс для журналов
 class Magazine extends PrintEditionItem {
-    constructor(name, releaseDate, pagesCount) {
-        super(name, releaseDate, pagesCount);
-        this.type = 'magazine'; // Тип журнала
-    }
+  constructor(name, releaseDate, pagesCount) {
+    super(name, releaseDate, pagesCount);
+    this.type = 'magazine'; // Тип журнала
+  }
 }
 
 // Класс для книг
 class Book extends PrintEditionItem {
-    constructor(author, name, releaseDate, pagesCount) {
-        super(name, releaseDate, pagesCount);
-        this.author = author; // Добавляем автора
-        this.type = 'book'; // Тип книги
-    }
+  constructor(author, name, releaseDate, pagesCount) {
+    super(name, releaseDate, pagesCount);
+    this.author = author; // Добавляем автора
+    this.type = 'book'; // Тип книги
+  }
 }
 
 // Классы для различных подтипов книг
 class NovelBook extends Book {
-    constructor(author, name, releaseDate, pagesCount) {
-        super(author, name, releaseDate, pagesCount);
-        this.type = 'novel'; // Тип романа
-    }
+  constructor(author, name, releaseDate, pagesCount) {
+    super(author, name, releaseDate, pagesCount);
+    this.type = 'novel'; // Тип романа
+  }
 }
 
 class FantasticBook extends Book {
-    constructor(author, name, releaseDate, pagesCount) {
-        super(author, name, releaseDate, pagesCount);
-        this.type = 'fantastic'; // Тип фантастики
-    }
+  constructor(author, name, releaseDate, pagesCount) {
+    super(author, name, releaseDate, pagesCount);
+    this.type = 'fantastic'; // Тип фантастики
+  }
 }
 
 class DetectiveBook extends Book {
-    constructor(author, name, releaseDate, pagesCount) {
-        super(author, name, releaseDate, pagesCount);
-        this.type = 'detective'; // Тип детектива
-    }
+  constructor(author, name, releaseDate, pagesCount) {
+    super(author, name, releaseDate, pagesCount);
+    this.type = 'detective'; // Тип детектива
+  }
 }
 
 //Задание 2
