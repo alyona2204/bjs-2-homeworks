@@ -3,16 +3,16 @@ function Student(name, gender, age) {
     this.gender = gender;    // Пол студента
     this.age = age;          // Возраст студента
     this.marks = [];         // Массив оценок
-    this.subject = null;     // Предмет (по умолчанию null)
-    this.excluded = false;    // Статус отчисления
+    this.subject = null;     // Предмет
+    this.excluded = false;   // статус отчисления
 }
 
 Student.prototype.setSubject = function(subjectName) {
-    this.subject = subjectName; 
+    this.subject = subjectName;
 };
 
 Student.prototype.addMarks = function(...marksToAdd) {
-   if (!this.excluded) {
+    if (!this.excluded) {
         this.marks.push(...marksToAdd); 
     }
 };
@@ -21,9 +21,9 @@ Student.prototype.addMarks = function(...marksToAdd) {
 Student.prototype.getAverage = function() {
     if (this.marks.length > 0) {
         const sum = this.marks.reduce((accum, mark) => accum + mark, 0);
-        return sum / this.marks.length;
+        return sum / this.marks.length; 
     }
-    return 0; 
+    return 0;
 };
 
 Student.prototype.exclude = function(reason) {
