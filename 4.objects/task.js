@@ -32,9 +32,3 @@ Student.prototype.exclude = function(reason) {
     this.marks = []; 
     this.excluded = reason; 
 };
-
-
-Student.prototype.isExcluded = function() {
-    return this.excluded !== null; 
-};
-
