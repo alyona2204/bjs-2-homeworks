@@ -20,7 +20,7 @@ Student.prototype.addMarks = function(...marksToAdd) {
 
 
 Student.prototype.getAverage = function() {
-    if (this.marks.length > 0) {
+    if (this.marks && this.marks.length > 0) {
         const sum = this.marks.reduce((accum, mark) => accum + mark, 0);
         return sum / this.marks.length;
     }
@@ -28,8 +28,8 @@ Student.prototype.getAverage = function() {
 };
 
 Student.prototype.exclude = function(reason) {
-    this.subject = undefined;
-    this.marks = undefined;
+    delete this.subject;
+    delete this.marks;
     this.excluded = true;
     this.excludeReason = reason;
 };
