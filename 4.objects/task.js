@@ -20,7 +20,7 @@ Student.prototype.addMarks = function(...marksToAdd) {
 
 
 Student.prototype.getAverage = function() {
-    if (Array.isArray(this.marks) && this.marks.length > 0) {
+    if (this.marks.length > 0) {
         const sum = this.marks.reduce((accum, mark) => accum + mark, 0);
         return sum / this.marks.length; 
     }
@@ -30,6 +30,6 @@ Student.prototype.getAverage = function() {
 Student.prototype.exclude = function(reason) {
     this.subject = null; 
     this.marks = []; 
-    this.excluded = reason;
-    this.excludeReason = reason;
+    this.excluded = true; // Устанавливаем excluded как true
+    this.excludeReason = reason; // Сохраняем причину отчисления в excludeReason
 };
