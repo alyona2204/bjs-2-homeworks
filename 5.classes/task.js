@@ -64,3 +64,34 @@ class DetectiveBook extends Book {
         this.type = 'detective'; // Тип детектива
     }
 }
+
+//Задание 2
+class Library {
+  constructor(name) {
+    this.name = name;
+    this.books = []; // Хранилище книг
+  }
+
+  // Метод для добавления книги
+  addBook(book) {
+    if (book.state > 30) {
+      this.books.push(book);
+    } else {
+      console.log(`Книга "${book.name}" не может быть добавлена. Состояние низкое.`);
+    }
+  }
+
+  // Метод для нахождения книги
+  findBookBy(type, value) {
+    return this.books.find(book => book[type] === value) || null;
+  }
+
+  // Метод для выдачи книги
+  giveBookByName(bookName) {
+    const bookIndex = this.books.findIndex(book => book.name === bookName);
+    if (bookIndex !== -1) {
+      return this.books.splice(bookIndex, 1)[0]; // Убираем и возвращаем книгу
+    }
+    return null; // Если книга не найдена
+  }
+}
